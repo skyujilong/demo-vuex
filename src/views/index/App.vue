@@ -1,6 +1,10 @@
 <template>
     <div>
         <h1>{{name}}</h1>
+        <div>
+            <span>次数：{{countdown}}</span>
+            <button @click="doCountdown">减少</button>
+        </div>
         <Cmnt></Cmnt>
         <Feed></Feed>
     </div>
@@ -27,6 +31,8 @@ import {
 })
 export default class App extends Vue{
     @Getter('name') name!:string;
+    @State(store=>store.countdown) countdown!:any;
+    @Action('doCountdown') doCountdown!:any;
     mounted(){
         console.log('mounted.......');
     }
